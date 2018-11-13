@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ContactType extends AbstractType
 {
@@ -15,6 +16,7 @@ class ContactType extends AbstractType
             ->add('name')
             ->add('email')
             ->add('message')
+            ->add('send', SubmitType::class, ['label' => 'Send message'])
         ;
     }
 
