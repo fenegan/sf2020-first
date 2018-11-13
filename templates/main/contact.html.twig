@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact us{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Contact</h1>
+    
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    
+    <a href="{{ path('main') }}">Back to home</a>
+</div>
+{% endblock %}
