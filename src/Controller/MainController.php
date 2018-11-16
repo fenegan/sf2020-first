@@ -20,7 +20,7 @@ class MainController extends AbstractController
     }
     
     /**
-     * @Route("/contact-us", name="contact")
+     * @Route("/contact-us.php", name="contact")
      */
     public function contact(Request $request)
     {
