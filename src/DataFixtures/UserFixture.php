@@ -21,10 +21,7 @@ class UserFixture extends Fixture
     {
         $user = new User();
         $user->setEmail('killian.vermersch@supinternet.fr');
-        $user->setPassword($this->passwordEncoder->encodePassword(
-            $user,
-            'admin'
-        ));
+        $user->setPassword('$argon2i$v=19$m=1024,t=2,p=2$Y0s3eGRuaHRqZWZtU1BBSA$WwwLGiv7vSAxu2njGNlTkb665U3Uf4l4I703ZZQ39QA');
         $manager->persist($user);
         $manager->flush();
     }
