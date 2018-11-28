@@ -8,15 +8,19 @@ use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Service\MessageGenerator;
 
 class MainController extends AbstractController
 {
     /**
      * @Route("/", name="main")
      */
-    public function index()
+    public function index(MessageGenerator $messageGenerator)
     {
-        return $this->render('main/index.html.twig');
+        $message = $messageGenerator->getHappyMessage();
+        return $this->render('main/index.html.twig', [
+            'message' => $message
+        ]);
     }
     
     /**
