@@ -15,7 +15,7 @@ class MessageGenerator
     public function getHappyMessage()
     {
         $messages = $this->messageRepository->findAll();
-        $index = array_rand($messages);
-        return $messages[$index];
+
+        return sizeof($messages) !== 0 ? $messages[array_rand($messages)] : '';
     }
 }
