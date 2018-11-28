@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Hello world ! ✅</h1>
+
+    <h2 style="color: pink">{{ messages.message }}</h2>
+    This is so awesome <a href="{{ path('contact') }}">contact us</a>
+</div>
+{% endblock %}
