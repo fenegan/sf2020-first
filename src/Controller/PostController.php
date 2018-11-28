@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/post")
+ * @Route("/blog")
  */
 class PostController extends AbstractController
 {
@@ -26,10 +26,10 @@ class PostController extends AbstractController
 
     /**
      * @Route("/new", name="post_new", methods="GET|POST")
-     * 
      * @IsGranted("ROLE_USER")
      */
-    public function new (Request $request): Response {
+    public function new(Request $request): Response
+    {
         $post = new Post();
         $post->setDate(new \DateTime());
         $form = $this->createForm(PostType::class, $post);
@@ -59,8 +59,6 @@ class PostController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="post_edit", methods="GET|POST")
-     * 
-     * @IsGranted("ROLE_USER")
      */
     public function edit(Request $request, Post $post): Response
     {
@@ -81,12 +79,10 @@ class PostController extends AbstractController
 
     /**
      * @Route("/{id}", name="post_delete", methods="DELETE")
-     * 
-     * @IsGranted("ROLE_USER")
      */
     public function delete(Request $request, Post $post): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $post->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$post->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($post);
             $em->flush();

@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Services\MessageGenerator;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Service\MessageGenerator;
 
 class MainController extends AbstractController
 {
