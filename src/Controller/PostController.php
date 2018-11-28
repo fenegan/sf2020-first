@@ -9,9 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/post")
+ * @Route("/blog")
  */
 class PostController extends AbstractController
 {
@@ -25,6 +26,7 @@ class PostController extends AbstractController
 
     /**
      * @Route("/new", name="post_new", methods="GET|POST")
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request): Response
     {
