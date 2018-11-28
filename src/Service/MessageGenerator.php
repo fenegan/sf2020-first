@@ -2,18 +2,23 @@
 
 namespace App\Service;
 
+use App\Entity\HappyMessage;
+use App\Repository\HappyMessageRepository;
+
 class MessageGenerator
 {
+    public $happyMessageRepository;
+
+    public function __construct(HappyMessageRepository $happyMessageRepository)
+    {
+        $this->happyMessageRepository = $happyMessageRepository;
+    }
+
     public function getHappyMessage()
     {
-        $messages = [
-            'You did it! You updated the system! Amazing!',
-            'That was one of the coolest updates I\'ve seen all day!',
-            'Great work! Keep going!',
-        ];
-
+        $messages = $this->happyMessageRepository->findAll();
         $index = array_rand($messages);
 
-        return $messages[$index];
+        return $messages[$index]->getContent();
     }
 }
