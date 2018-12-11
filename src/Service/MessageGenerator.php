@@ -16,6 +16,6 @@ class MessageGenerator
     public function getHappyMessage(): string
     {
         $happyMessages = $this->happyMessageRepository->findAll();
-        return $happyMessages[array_rand($happyMessages)]->getMessage();
+        return empty($happyMessages) ? "Hello world!" : $happyMessages[array_rand($happyMessages)]->getMessage();
     }
 }
