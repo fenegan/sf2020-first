@@ -11,7 +11,6 @@ class MessageGenerator extends AbstractController
     {
         $messages = $this->getDoctrine()->getRepository(Messages::class)->findAll();
         $message = array_rand($messages);
-        dump($messages[$message]);
         return $messages[$message];
     }
 }
